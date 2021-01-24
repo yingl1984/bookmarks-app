@@ -5,7 +5,7 @@ import BookmarkList from './BookmarkList/BookmarkList';
 import Nav from './Nav/Nav';
 import config from './config';
 import './App.css';
-
+//Lesson 14
 const bookmarks = [
   // {
   //   id: 0,
@@ -76,11 +76,14 @@ class App extends Component {
         <div className='content' aria-live='polite'>
           <Route
             path='/add-bookmark'
-            render={() => <AddBookmark
-              onAddBookmark={this.addBookmark}
-              onClickCancel={() => {/* what here? */}}
-            />}
-          />
+            render={({ history }) => {
+             
+              return <AddBookmark
+                onAddBookmark={this.addBookmark}
+                // onClickCancel={() => history.push('/')}
+            />
+         }}
+      />
           <Route
             exact
             path='/'
